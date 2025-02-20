@@ -3,6 +3,7 @@ import "swiper/css";
 import "../App.css"; // Assurez-vous d'avoir un fichier CSS pour le style
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FreeMode } from 'swiper/modules';
 
 const BoosterCarousel = () => {
   const navigate = useNavigate();
@@ -21,11 +22,11 @@ const BoosterCarousel = () => {
     >
       <Swiper
         slidesPerView={3}
-        centeredSlides={true}
-        navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         loop={true}
+        freeMode={true}
+        modules={[FreeMode]}
       >
         {[...Array(size).keys()].map((index) => (
           <SwiperSlide key={index} onClick={() => openBooster()}>
