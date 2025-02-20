@@ -6,10 +6,10 @@ const BoosterOpening = () => {
   const [currentCard, setCurrentCard] = useState(0);
   const cardX = useMotionValue(0);
   const cardY = useMotionValue(0);
-  const rotateX = useTransform(cardY, [-300, 300], [10, -10]); // Reversed values
-  const rotateY = useTransform(cardX, [-300, 300], [-10, 10]); // Reversed values
-  const cardRotateX = useTransform(cardY, [-300, 300], [25, -25]); // Adjusted rotation values
-  const cardRotateY = useTransform(cardX, [-300, 300], [-25, 25]); // Adjusted rotation values
+  const rotateX = useTransform(cardY, [-300, 300], [10, -10]);
+  const rotateY = useTransform(cardX, [-300, 300], [-10, 10]);
+  const cardRotateX = useTransform(cardY, [-300, 300], [25, -25]);
+  const cardRotateY = useTransform(cardX, [-300, 300], [-25, 25]);
   const navigate = useNavigate();
   const cards = [...Array(4)];
   const handleMouseMove = (event) => {
@@ -30,9 +30,9 @@ const BoosterOpening = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh", // Utilisez 100vh pour occuper toute la hauteur de la fenêtre
-        width: "100vw",  // Utilisez 100vw pour occuper toute la largeur de la fenêtre
-        overflow: "hidden" // Empêche les barres de défilement
+        height: "100vh",
+        width: "100vw",
+        overflow: "hidden"
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
