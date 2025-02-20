@@ -28,7 +28,6 @@ const Booster = () => {
       <motion.div
         initial={{ scale: 0.8, opacity: 0.5 }}
         animate={{ scale: 1, opacity: 1 }}
-        whileHover={{ opacity: 0.75 }}
         transition={{ duration: 1, ease: "easeOut" }}
         onClick={() => openBooster()}
         style={{
