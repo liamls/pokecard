@@ -20,7 +20,13 @@ const BoosterOpening = () => {
   };
 
   const getRandomPokemonImage = () => {
-    return `src/assets/pokemons/image (${Math.floor(Math.random() * 422)}).png`;
+    const idCard = Math.floor(Math.random() * 422);
+    let savedPokemonIds = JSON.parse(localStorage.getItem('pokemonIds')) || [];
+    if (!savedPokemonIds.includes(idCard)) {
+      savedPokemonIds.push(idCard);
+      localStorage.setItem('pokemonIds', JSON.stringify(savedPokemonIds));
+    }
+    return `src/assets/pokemons/image (${idCard}).png`;
   }
 
   const handleMouseLeave = () => {
