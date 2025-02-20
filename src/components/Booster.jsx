@@ -30,16 +30,15 @@ const Booster = () => {
         animate={{ scale: 1, opacity: 1 }}
         whileHover={{ opacity: 0.75 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="booster-closed"
         onClick={() => openBooster()}
         style={{
           perspective: 800,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "100vh", // Utilisez 100vh pour occuper toute la hauteur de la fenêtre
-          width: "100vw",  // Utilisez 100vw pour occuper toute la largeur de la fenêtre
-          overflow: "hidden" // Empêche les barres de défilement
+          height: "100vh",
+          width: "100vw",
+          overflow: "hidden"
         }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
