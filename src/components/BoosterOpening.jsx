@@ -19,6 +19,10 @@ const BoosterOpening = () => {
     cardY.set(offsetY);
   };
 
+  const getRandomPokemonImage = () => {
+    return `src/assets/pokemons/image (${Math.floor(Math.random() * 422)}).png`;
+  }
+
   const handleMouseLeave = () => {
     cardX.set(0);
     cardY.set(0);
@@ -62,12 +66,16 @@ const BoosterOpening = () => {
             transition={{ velocity: 0 }}>
             <motion.img
               key={currentCard}
-              src="https://img.game8.co/4003522/31cffe0b0a2dccac69c03c84adc1003e.png/show"
+              src={getRandomPokemonImage()}
+              alt="Random pokemon"
               initial={{ scale: 0.5, opacity: 0, rotate: 30 }}
               animate={{ scale: 1, opacity: 1, rotate: 0 }}
               whileHover={{ opacity: 0.9, filter: 'brightness(1.2)' }}
               transition={{ duration: 0.5, ease: "easeOut" }}
               onClick={() => setCurrentCard(currentCard + 1)}
+              style={{
+                height: "50vh",
+              }}
             />
           </motion.div>
         </motion.div>
