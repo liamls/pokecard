@@ -30,7 +30,9 @@ const BoosterOpening = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100%"
+        height: "100vh", // Utilisez 100vh pour occuper toute la hauteur de la fenêtre
+        width: "100vw",  // Utilisez 100vw pour occuper toute la largeur de la fenêtre
+        overflow: "hidden" // Empêche les barres de défilement
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
