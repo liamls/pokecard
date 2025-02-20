@@ -1,30 +1,77 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const BoosterOpening = () => {
   const [currentCard, setCurrentCard] = useState(0);
+  const cardX = useMotionValue(0);
+  const cardY = useMotionValue(0);
+  const rotateX = useTransform(cardY, [-300, 300], [10, -10]); // Reversed values
+  const rotateY = useTransform(cardX, [-300, 300], [-10, 10]); // Reversed values
+  const cardRotateX = useTransform(cardY, [-300, 300], [25, -25]); // Adjusted rotation values
+  const cardRotateY = useTransform(cardX, [-300, 300], [-25, 25]); // Adjusted rotation values
   const navigate = useNavigate();
   const cards = [...Array(4)];
-  console.log(currentCard, cards.length);
+  const handleMouseMove = (event) => {
+    const offsetX = event.clientX - window.innerWidth / 2;
+    const offsetY = event.clientY - window.innerHeight / 2;
+    cardX.set(offsetX);
+    cardY.set(offsetY);
+  };
 
+  const handleMouseLeave = () => {
+    cardX.set(0);
+    cardY.set(0);
+  };
   return (
-    <div className="booster-opening-container">
+    <motion.div
+      style={{
+        perspective: 800,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%"
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
       {currentCard < cards.length ? (
-        <motion.img
-          key={currentCard}
-          src="https://img.game8.co/4003522/31cffe0b0a2dccac69c03c84adc1003e.png/show"
-          initial={{ scale: 0.5, opacity: 0, rotate: 45 }}
-          animate={{ scale: 1, opacity: 1, rotate: 0 }}
-          whileHover={{ opacity: 0.75, scale: 0.9 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="booster-card"
-          onClick={() => setCurrentCard(currentCard + 1)}
-        />
+        <motion.div
+          style={{
+            margin: "auto",
+            transformStyle: "preserve-3d",
+            perspective: 800,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            rotateX,
+            rotateY
+          }}
+          transition={{ velocity: 0 }}
+        >
+          <motion.div
+            style={{
+              transformStyle: "preserve-3d",
+              perspective: 800,
+              cardRotateX,
+              cardRotateY,
+              width: "100%", height: "100%",
+            }}
+            transition={{ velocity: 0 }}>
+            <motion.img
+              key={currentCard}
+              src="https://img.game8.co/4003522/31cffe0b0a2dccac69c03c84adc1003e.png/show"
+              initial={{ scale: 0.5, opacity: 0, rotate: 30 }}
+              animate={{ scale: 1, opacity: 1, rotate: 0 }}
+              whileHover={{ opacity: 0.75 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              onClick={() => setCurrentCard(currentCard + 1)}
+            />
+          </motion.div>
+        </motion.div>
       ) : (
         <motion.button
           onClick={() => navigate("/carrousel")}
-          className="return-button"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -32,7 +79,7 @@ const BoosterOpening = () => {
           Retour au carrousel
         </motion.button>
       )}
-    </div>
+    </motion.div>
   );
 };
 

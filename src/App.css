@@ -1,50 +1,16 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  height: 100%;
+  width: 100%;
+  margin: 0;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 body {
   background: linear-gradient(135deg, #ffffff, #c9b7ff, #aaf3fd);
-  background-size: 400% 400%;
   animation: gradientAnimation 5s infinite alternate;
-  min-height: 100vh;
-  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,86 +24,4 @@ body {
   100% {
     background-position: 100% 50%;
   }
-}
-
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.swiper {
-  width: 100vw;
-}
-
-.swiper-slide {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.swiper-slide img {
-  height: 55vh;
-  box-shadow: 0px 0px 20px 0px black;
-}
-
-.booster-detail-container {
-  cursor: pointer;
-}
-
-.booster-detail-container img {
-  height: 60vh;
-  box-shadow: 0px 0px 20px 0px black;
-}
-
-.booster-half-left {
-  left: -50px;
-  object-fit: cover;
-}
-
-.booster-half-right img {
-  right: -50px;
-}
-
-.booster-opening-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-}
-
-.card-container {
-  position: relative;
-  width: 250px;
-  height: 350px;
-  transition: transform 0.2s ease-out;
-}
-
-.booster-card {
-  height: 60vh;
-  ;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  background-color: white;
-}
-
-.return-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  border: none;
-  background: #ffd700;
-  color: #222;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
-
-.return-button:hover {
-  background: #ffac00;
 }

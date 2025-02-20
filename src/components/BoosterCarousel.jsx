@@ -15,10 +15,16 @@ const BoosterCarousel = () => {
   };
   return (
     <motion.div
-      className="booster-carousel-container"
       initial={{ scale: 0.1, opacity: 0.1 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.5 }}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+        width: "100%"
+      }}
     >
       <Swiper
         slidesPerView={3}
@@ -36,6 +42,7 @@ const BoosterCarousel = () => {
               whileTap={{ scale: 0.8, opacity: 0.5 }}
               whileHover={{ scale: 0.95, rotate: 2, opacity: 0.75 }}
               transition={{ duration: 0.2 }}
+              style={{ height: "50vh" }}
             />
           </SwiperSlide>
         ))}
