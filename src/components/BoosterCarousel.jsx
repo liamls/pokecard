@@ -8,7 +8,7 @@ import { FreeMode } from 'swiper/modules';
 
 const BoosterCarousel = () => {
   const navigate = useNavigate();
-  const urlImage = "src/assets/EB05-Booster.png";
+  const urlImage = "/assets/EB05-Booster.png";
   const size = 10;
 
   const openBooster = () => {

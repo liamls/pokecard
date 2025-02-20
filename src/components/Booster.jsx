@@ -3,7 +3,7 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 const Booster = () => {
-  const urlImage = "src/assets/EB05-Booster.png";
+  const urlImage = "/assets/EB05-Booster.png";
   const navigate = useNavigate();
   const cardX = useMotionValue(0);
   const cardY = useMotionValue(0);

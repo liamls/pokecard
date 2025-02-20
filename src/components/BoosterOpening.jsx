@@ -27,7 +27,7 @@ const BoosterOpening = () => {
       savedPokemonIds.push(idCard);
       localStorage.setItem('pokemonIds', JSON.stringify(savedPokemonIds));
     }
-    return `src/assets/pokemons/image (${idCard}).png`;
+    return `/assets/pokemons/image (${idCard}).png`;
   }
 
   const handleMouseLeave = () => {

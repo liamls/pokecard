@@ -10,7 +10,7 @@ const Pokedex = () => {
     }, []);
 
     const getPokemonImage = (id) => {
-        return `src/assets/pokemons/image (${id}).png`;
+        return `/assets/pokemons/image (${id}).png`;
     };
 
     return (
