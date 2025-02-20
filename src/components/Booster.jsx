@@ -5,10 +5,10 @@ const Booster = () => {
   const navigate = useNavigate();
   const cardX = useMotionValue(0);
   const cardY = useMotionValue(0);
-  const rotateX = useTransform(cardY, [-300, 300], [10, -10]); // Reversed values
-  const rotateY = useTransform(cardX, [-300, 300], [-10, 10]); // Reversed values
-  const cardRotateX = useTransform(cardY, [-300, 300], [25, -25]); // Adjusted rotation values
-  const cardRotateY = useTransform(cardX, [-300, 300], [-25, 25]); // Adjusted rotation values
+  const rotateX = useTransform(cardY, [-300, 300], [10, -10]);
+  const rotateY = useTransform(cardX, [-300, 300], [-10, 10]);
+  const cardRotateX = useTransform(cardY, [-300, 300], [25, -25]);
+  const cardRotateY = useTransform(cardX, [-300, 300], [-25, 25]);
   const handleMouseMove = (event) => {
     const offsetX = event.clientX - window.innerWidth / 2;
     const offsetY = event.clientY - window.innerHeight / 2;

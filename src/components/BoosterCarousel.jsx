@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "../App.css"; // Assurez-vous d'avoir un fichier CSS pour le style
+import "../App.css";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FreeMode } from 'swiper/modules';

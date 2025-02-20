@@ -1,12 +1,22 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./App.css";
 import BoosterCarousel from "./components/BoosterCarousel";
 import BoosterDetail from "./components/Booster";
 import BoosterOpening from "./components/BoosterOpening";
+import Pokedex from "./components/Pokedex";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const navStyle = {
+    display: 'flex',
+  };
+
+  const navLinkStyle = {
+    textDecoration: 'none',
+    color: '#fff',
+    fontSize: '5rem',
+    fontWeight: 'bold',
+    margin: "4rem"
+  };
 
   return (
     <Router>
@@ -14,19 +24,20 @@ function App() {
         <Route
           path="/"
           element={
-            <div className="card">
-              <button onClick={() => setCount((count) => count + 1)}>
-                count is {count}
-              </button>
-              <p>
-                Edit <code>src/App.jsx</code> and save to test HMR
-              </p>
+            <div style={navStyle}>
+              <a href="/carrousel" style={navLinkStyle} >
+                Boosters
+              </a>
+              <a href="/pokedex" style={navLinkStyle} >
+                Pokédex
+              </a>
             </div>
           }
         />
         <Route path="/carrousel" element={<BoosterCarousel />} />
         <Route path="/booster" element={<BoosterDetail />} />
         <Route path="/opening" element={<BoosterOpening />} />
+        <Route path="/pokedex" element={<Pokedex />} />
       </Routes>
     </Router>
   );

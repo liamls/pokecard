@@ -11,7 +11,7 @@ const BoosterOpening = () => {
   const cardRotateX = useTransform(cardY, [-300, 300], [25, -25]);
   const cardRotateY = useTransform(cardX, [-300, 300], [-25, 25]);
   const navigate = useNavigate();
-  const cards = [...Array(4)];
+  const cards = [...Array(5)];
   const handleMouseMove = (event) => {
     const offsetX = event.clientX - window.innerWidth / 2;
     const offsetY = event.clientY - window.innerHeight / 2;
@@ -20,7 +20,7 @@ const BoosterOpening = () => {
   };
 
   const getRandomPokemonImage = () => {
-    const idCard = Math.floor(Math.random() * 422);
+    const idCard = Math.floor((Math.random() * 421) + 1);
     let savedPokemonIds = JSON.parse(localStorage.getItem('pokemonIds')) || [];
     if (!savedPokemonIds.includes(idCard)) {
       savedPokemonIds.push(idCard);
@@ -86,14 +86,21 @@ const BoosterOpening = () => {
           </motion.div>
         </motion.div>
       ) : (
-        <motion.button
-          onClick={() => navigate("/carrousel")}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Retour au carrousel
-        </motion.button>
+        <>
+          <button
+            style={{ margin: "2rem" }}
+            onClick={() => navigate("/carrousel")}
+          >
+            Ouvrir un autre booster
+          </button>
+          <button
+            style={{ margin: "2rem" }}
+            onClick={() => navigate("/")}
+          >
+            Accueil
+          </button>
+        </>
+
       )}
     </motion.div>
   );
