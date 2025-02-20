@@ -1,3 +1,4 @@
+import React from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
