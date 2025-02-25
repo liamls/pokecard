@@ -17,6 +17,13 @@ const Booster = () => {
     cardX.set(offsetX);
     cardY.set(offsetY);
   };
+  const handleTouchMove = (event) => {
+    const touch = event.touches[0];
+    const offsetX = touch.clientX - window.innerWidth / 2;
+    const offsetY = touch.clientY - window.innerHeight / 2;
+    cardX.set(offsetX);
+    cardY.set(offsetY);
+  };
   const handleMouseLeave = () => {
     cardX.set(0);
     cardY.set(0);
@@ -43,6 +50,8 @@ const Booster = () => {
         }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleMouseLeave}
       >
         <motion.div
           style={{
