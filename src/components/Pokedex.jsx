@@ -89,7 +89,7 @@ const Pokedex = () => {
                         </div>
                     ))
                 ) : (
-                    <p>Aucun Pokémon n'a été trouvé. Attrape-les dans le booster !</p>
+                    <p>Open a booster, no pokemon were found.</p>
                 )}
             </div>
             <Dialog

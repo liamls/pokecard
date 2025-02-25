@@ -64,10 +64,12 @@ const BoosterCarousel = () => {
                 height: "auto",
                 objectFit: "cover",
                 borderRadius: "8px",
+                boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px"
               }}
             />
           </SwiperSlide>
         ))}
+        <p style={{ fontWeight: "bold" }}>Scroll to chose your booster.</p>
       </Swiper>
     </motion.div>
   );

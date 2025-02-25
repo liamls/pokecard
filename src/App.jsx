@@ -65,7 +65,10 @@ function App() {
                 Pokedex
               </motion.a>
               <p style={descriptionStyle}>
-                This is a Pokémon card opening simulator made by Liam Le Strat.
+                This is a Pokémon card opening simulator made by Liam LS.
+              </p>
+              <p style={descriptionStyle}>
+                v0.1 (still no drop rates)
               </p>
             </motion.div>
           }

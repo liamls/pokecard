@@ -76,7 +76,7 @@ const Booster = () => {
             }}
             transition={{ velocity: 0 }}>
             <motion.img
-              style={{ height: "50vh" }}
+              style={{ height: "50vh", borderRadius: "8px", boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px" }}
               src={urlImage}
               animate={{
                 scale: [1, 1.1, 1],
@@ -88,6 +88,7 @@ const Booster = () => {
                 ease: "easeInOut",
               }}
             />
+            <p style={{ fontWeight: "bold" }}>Tap to open the booster.</p>
           </motion.div>
         </motion.div>
       </motion.div>

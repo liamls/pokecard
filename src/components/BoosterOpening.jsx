@@ -58,6 +58,7 @@ const BoosterOpening = () => {
             cardRotateY={cardRotateY}
             cardId={Math.floor(Math.random() * 421) + 1}
           />
+          <p style={{ fontWeight: "bold" }}>Tap to get the next card.</p>
         </div>
       ) : (
         <>
