@@ -60,7 +60,7 @@ const BoosterCarousel = () => {
               whileHover={{ scale: 0.95, rotate: 2, opacity: 0.75 }}
               transition={{ duration: 0.2 }}
               style={{
-                width: "100%",
+                width: "90%",
                 height: "auto",
                 objectFit: "cover",
                 borderRadius: "8px",
