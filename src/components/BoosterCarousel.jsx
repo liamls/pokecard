@@ -14,6 +14,7 @@ const BoosterCarousel = () => {
   const openBooster = () => {
     navigate(`/booster`);
   };
+
   return (
     <motion.div
       initial={{ scale: 0.1, opacity: 0.1 }}
@@ -24,26 +25,46 @@ const BoosterCarousel = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100%",
-        width: "100%"
+        width: "100%",
+        padding: "1rem",
+        boxSizing: "border-box",
       }}
     >
       <Swiper
-        slidesPerView={3}
+        slidesPerView={2.25}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+        }}
+        spaceBetween={20}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         loop={true}
         freeMode={true}
         modules={[FreeMode]}
+        style={{ width: "100%", height: "100%" }}
       >
         {[...Array(size).keys()].map((index) => (
-          <SwiperSlide key={index} onClick={() => openBooster()}>
+          <SwiperSlide key={index} onClick={openBooster}>
             <motion.img
               src={urlImage}
-              alt={index}
+              alt={`Booster ${index}`}
               whileTap={{ scale: 0.8, opacity: 0.5 }}
               whileHover={{ scale: 0.95, rotate: 2, opacity: 0.75 }}
               transition={{ duration: 0.2 }}
-              style={{ height: "50vh" }}
+              style={{
+                width: "100%",
+                height: "auto",
+                objectFit: "cover",
+                borderRadius: "8px",
+              }}
             />
           </SwiperSlide>
         ))}

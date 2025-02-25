@@ -56,13 +56,13 @@ const BoosterOpening = () => {
             style={{ margin: "2rem" }}
             onClick={() => navigate("/carrousel")}
           >
-            Ouvrir un autre booster
+            Open another booster
           </button>
           <button
             style={{ margin: "2rem" }}
             onClick={() => navigate("/")}
           >
-            Accueil
+            Home
           </button>
         </>
 

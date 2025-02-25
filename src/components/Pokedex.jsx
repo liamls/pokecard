@@ -49,7 +49,7 @@ const Pokedex = () => {
                 style={{ margin: "2rem" }}
                 onClick={() => navigate("/")}
             >
-                Accueil
+                Home
             </motion.button>
             <div
                 style={{
