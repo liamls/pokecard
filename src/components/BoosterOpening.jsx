@@ -63,7 +63,7 @@ const BoosterOpening = () => {
       ) : (
         <>
           <button
-            style={{ margin: "2rem", color: black }}
+            style={{ margin: "2rem" }}
             onClick={() => navigate("/carrousel")}
           >
             Open another booster
