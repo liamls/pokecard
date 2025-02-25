@@ -58,12 +58,12 @@ const BoosterOpening = () => {
             cardRotateY={cardRotateY}
             cardId={Math.floor(Math.random() * 421) + 1}
           />
-          <p style={{ fontWeight: "bold" }}>Tap to get the next card.</p>
+          <p style={{ fontWeight: "bold", color: "white" }}>Tap to get the next card.</p>
         </div>
       ) : (
         <>
           <button
-            style={{ margin: "2rem" }}
+            style={{ margin: "2rem", color: black }}
             onClick={() => navigate("/carrousel")}
           >
             Open another booster

@@ -69,7 +69,7 @@ const BoosterCarousel = () => {
             />
           </SwiperSlide>
         ))}
-        <p style={{ fontWeight: "bold" }}>Scroll to chose your booster.</p>
+        <p style={{ fontWeight: "bold", color: "white" }}>Scroll to chose your booster.</p>
       </Swiper>
     </motion.div>
   );

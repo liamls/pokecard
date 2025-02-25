@@ -88,7 +88,7 @@ const Booster = () => {
                 ease: "easeInOut",
               }}
             />
-            <p style={{ fontWeight: "bold" }}>Tap to open the booster.</p>
+            <p style={{ fontWeight: "bold", color: "white" }}>Tap to open the booster.</p>
           </motion.div>
         </motion.div>
       </motion.div>
