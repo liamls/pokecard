@@ -16,12 +16,12 @@ const Pokedex = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const savedPokemonIds = JSON.parse(localStorage.getItem('pokemonIds')) || [];
+        const savedPokemonIds = JSON.parse(sessionStorage.getItem('pokemonIds')) || [];
         setPokemonIds(savedPokemonIds);
     }, []);
 
     const getPokemonImage = (id) => {
-        return `/assets/pokemons/image (${id}).png`;
+        return `/assets/pokemons/${id}.png`;
     };
 
     const cardX = useMotionValue(0);
