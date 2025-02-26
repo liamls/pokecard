@@ -114,7 +114,7 @@ const BoosterOpening = () => {
             rotateY={rotateY}
             cardRotateX={cardRotateX}
             cardRotateY={cardRotateY}
-            cardId={obtainedCards[currentCard]}
+            cardId={obtainedCards[currentCard + 1]}
           />
           <p style={{ fontWeight: "bold", color: "white" }}>Tap to get the next card.</p>
         </div>
