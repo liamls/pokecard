@@ -3,11 +3,6 @@ import { motion } from "framer-motion";
 const Card = ({ rotateX, rotateY, cardRotateX, cardRotateY, cardId }) => {
 
     const getPokemonImage = (id) => {
-        let savedPokemonIds = JSON.parse(sessionStorage.getItem('pokemonIds')) || [];
-        if (!savedPokemonIds.includes(id)) {
-            savedPokemonIds.push(id);
-            sessionStorage.setItem('pokemonIds', JSON.stringify(savedPokemonIds));
-        }
         return `/assets/pokemons/${id}.png`;
     }
 

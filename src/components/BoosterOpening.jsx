@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 
 const BoosterOpening = () => {
   const [currentCard, setCurrentCard] = useState(0);
+  const [isNew, setIsNew] = useState(false);
   const [obtainedCards, setObtainedCards] = useState([]);
   const cardX = useMotionValue(0);
   const cardY = useMotionValue(0);
@@ -59,11 +60,32 @@ const BoosterOpening = () => {
     return randomId;
   };
 
+  const checkNewCard = (id) => {
+    const cards = JSON.parse(sessionStorage.getItem('pokemonIds'));
+    if (cards && Array.isArray(cards)) {
+      return cards.includes(id);
+    }
+    return false;
+  };
+
   const handleCardClick = () => {
     const newCardId = getRandomId();
+    const isCardNew = !checkNewCard(newCardId);
+    setIsNew(isCardNew);
+    if (isCardNew) {
+      let savedPokemonIds = JSON.parse(sessionStorage.getItem('pokemonIds')) || [];
+      savedPokemonIds.push(newCardId);
+      sessionStorage.setItem('pokemonIds', JSON.stringify(savedPokemonIds));
+    }
     setObtainedCards((prev) => [...prev, newCardId]);
     setCurrentCard(currentCard + 1);
   };
+
+  useEffect(() => {
+    if (currentCard === 0) {
+      handleCardClick();
+    }
+  }, []);
 
   return (
     <motion.div
@@ -84,18 +106,27 @@ const BoosterOpening = () => {
     >
       {currentCard < cards.length ? (
         <div onClick={handleCardClick}>
+          {isNew ? (<h1 style={{ color: "white", "-webkit-text-stroke": "0.1rem black" }}>NEW !</h1>) : null}
           <Card
             rotateX={rotateX}
             rotateY={rotateY}
             cardRotateX={cardRotateX}
             cardRotateY={cardRotateY}
-            cardId={getRandomId()}
+            cardId={obtainedCards[currentCard]}
           />
           <p style={{ fontWeight: "bold", color: "white" }}>Tap to get the next card.</p>
         </div>
       ) : (
         <>
-          <div style={{ display: "flex", marginBottom: "2rem", justifyContent: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: "20px",
+              padding: "20px",
+            }}
+          >
             {obtainedCards.map((cardId, index) => (
               <motion.img
                 key={index}
@@ -114,13 +145,13 @@ const BoosterOpening = () => {
             ))}
           </div>
           <button
-            style={{ margin: "2rem", height: "5vh" }}
+            style={{ margin: "2rem", height: "3rem" }}
             onClick={() => navigate("/carrousel")}
           >
             Open another booster
           </button>
           <button
-            style={{ margin: "2rem", height: "5vh" }}
+            style={{ margin: "2rem", height: "3rem" }}
             onClick={() => navigate("/")}
           >
             Home

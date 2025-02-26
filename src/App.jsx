@@ -68,7 +68,7 @@ function App() {
                 This is a Pokémon card opening simulator made by Liam LS.
               </p>
               <p style={descriptionStyle}>
-                v0.1 (still no drop rates)
+                v0.2
               </p>
             </motion.div>
           }

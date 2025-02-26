@@ -7,6 +7,7 @@ import Card from "./Card";
 const Pokedex = () => {
     const [pokemonIds, setPokemonIds] = useState([]);
     const [open, setOpen] = useState(false);
+    const cards = JSON.parse(sessionStorage.getItem('pokemonIds')).length;
     const [selectedId, setSelectedId] = useState(null);
     const handleOpen = (id) => {
         setSelectedId(id);
@@ -45,12 +46,15 @@ const Pokedex = () => {
 
     return (
         <div>
-            <motion.button
-                style={{ margin: "2rem" }}
-                onClick={() => navigate("/")}
-            >
-                Home
-            </motion.button>
+            <motion.div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", alignContent: "center" }}>
+                <button
+                    style={{ margin: "2rem" }}
+                    onClick={() => navigate("/")}
+                >
+                    Home
+                </button>
+                <h1 style={{ color: "black", fontSize: "2rem", margin: "2rem" }}>{cards} / 388 cards </h1>
+            </motion.div>
             <div
                 style={{
                     display: "flex",
@@ -81,7 +85,7 @@ const Pokedex = () => {
                                 transition={{ duration: 0.5, ease: "easeOut" }}
                                 style={{
                                     height: "auto",
-                                    width: "10vw",
+                                    width: "15vw",
                                     objectFit: "contain",
                                 }}
                                 onClick={() => handleOpen(id)}
@@ -124,7 +128,7 @@ const Pokedex = () => {
                     />
                 </motion.div>
             </Dialog>
-        </div>
+        </div >
     );
 };
 
