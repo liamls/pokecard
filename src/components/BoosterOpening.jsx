@@ -107,24 +107,23 @@ const BoosterOpening = () => {
     >
       {currentCard < cards.length ? (
         <div onClick={handleCardClick} style={{ textAlign: "center" }}>
-          {isNew && (
-            <motion.h1
-              style={{
-                color: "white",
-                "-webkit-text-stroke": "0.1rem black",
-                marginBottom: "1rem",
-                fontSize: "2rem",
-                textTransform: "uppercase",
-                fontWeight: "bold",
-              }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              NEW !
-            </motion.h1>
-          )}
+          <motion.h1
+            style={{
+              color: "white",
+              "-webkit-text-stroke": "0.1rem black",
+              marginBottom: "1rem",
+              fontSize: "2rem",
+              textTransform: "uppercase",
+              fontWeight: "bold",
+              visibility: isNew ? "visible" : "hidden",
+            }}
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.5, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+          >
+            NEW !
+          </motion.h1>
           <Card
             rotateX={rotateX}
             rotateY={rotateY}
@@ -134,6 +133,7 @@ const BoosterOpening = () => {
           />
           <p style={{ fontWeight: "bold", color: "white" }}>Tap to get the next card.</p>
         </div>
+
       ) : (
         <>
           <div
