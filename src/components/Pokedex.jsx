@@ -87,6 +87,7 @@ const Pokedex = () => {
                                     height: "auto",
                                     width: "15vw",
                                     objectFit: "contain",
+                                    borderRadius: "10px"
                                 }}
                                 onClick={() => handleOpen(id)}
                             />

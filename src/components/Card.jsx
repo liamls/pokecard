@@ -39,7 +39,8 @@ const Card = ({ rotateX, rotateY, cardRotateX, cardRotateY, cardId }) => {
                     transition={{ duration: 0.5, ease: "easeOut" }}
                     style={{
                         height: "50vh",
-                        boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px"
+                        boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+                        borderRadius: "10px"
                     }}
                 />
             </motion.div>

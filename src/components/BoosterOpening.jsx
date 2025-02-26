@@ -98,6 +98,7 @@ const BoosterOpening = () => {
         width: "100vw",
         overflow: "hidden",
         flexDirection: "column",
+        position: "relative",
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -105,8 +106,25 @@ const BoosterOpening = () => {
       onTouchEnd={handleMouseLeave}
     >
       {currentCard < cards.length ? (
-        <div onClick={handleCardClick}>
-          {isNew ? (<h1 style={{ color: "white", "-webkit-text-stroke": "0.1rem black" }}>NEW !</h1>) : null}
+        <div onClick={handleCardClick} style={{ textAlign: "center" }}>
+          {isNew && (
+            <motion.h1
+              style={{
+                color: "white",
+                "-webkit-text-stroke": "0.1rem black",
+                marginBottom: "1rem",
+                fontSize: "2rem",
+                textTransform: "uppercase",
+                fontWeight: "bold",
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              NEW !
+            </motion.h1>
+          )}
           <Card
             rotateX={rotateX}
             rotateY={rotateY}
@@ -139,7 +157,8 @@ const BoosterOpening = () => {
                 style={{
                   width: "15vw",
                   margin: "1vw",
-                  boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px"
+                  boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+                  borderRadius: "10px"
                 }}
               />
             ))}
