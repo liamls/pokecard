@@ -77,7 +77,7 @@ const BoosterOpening = () => {
       savedPokemonIds.push(newCardId);
       sessionStorage.setItem('pokemonIds', JSON.stringify(savedPokemonIds));
     }
-    setObtainedCards((prev) => [...prev, newCardId]);
+    setObtainedCards([...obtainedCards, newCardId]);
     setCurrentCard(currentCard + 1);
   };
 
