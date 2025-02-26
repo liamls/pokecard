@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 const Card = ({ rotateX, rotateY, cardRotateX, cardRotateY, cardId }) => {
 
     const getPokemonImage = (id) => {
+        console.log(`/assets/pokemons/${id}.png`)
         return `/assets/pokemons/${id}.png`;
     }
 
