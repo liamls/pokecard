@@ -81,6 +81,8 @@ const BoosterOpening = () => {
     setCurrentCard(currentCard + 1);
   };
 
+  console.log(obtainedCards, currentCard);
+
   useEffect(() => {
     if (currentCard === 0) {
       handleCardClick();
