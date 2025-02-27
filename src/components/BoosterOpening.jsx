@@ -11,13 +11,13 @@ const BoosterOpening = () => {
 
   const getRandomId = () => {
     const categories = [
-      { min: 1, max: 142, weight: 80 },
-      { min: 143, max: 237, weight: 60 },
-      { min: 238, max: 288, weight: 20 },
-      { min: 289, max: 308, weight: 7 },
-      { min: 309, max: 340, weight: 10 },
-      { min: 341, max: 379, weight: 2 },
-      { min: 380, max: 384, weight: 1 },
+      { min: 1, max: 142, weight: 60 },
+      { min: 143, max: 237, weight: 20 },
+      { min: 238, max: 288, weight: 10 },
+      { min: 289, max: 308, weight: 5 },
+      { min: 309, max: 340, weight: 3 },
+      { min: 341, max: 379, weight: 1 },
+      { min: 380, max: 384, weight: 0.5 },
       { min: 385, max: 388, weight: 0.1 },
     ];
     let cumulativeWeight = 0;
@@ -43,6 +43,17 @@ const BoosterOpening = () => {
     }
     return false;
   };
+
+  useEffect(() => {
+    let currentAttempts = 0;
+    let id = 0;
+    while (id < 310) {
+      id = getRandomId();
+      currentAttempts++;
+      console.log(id);
+    }
+    console.log(id, "essai", currentAttempts);
+  }, []);
 
   const handleCardClick = () => {
     const newCardId = randomIds[currentCard];
