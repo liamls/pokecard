@@ -17,6 +17,7 @@ const Card = ({ cardId }) => {
         rotateX: [-5, 5],
         rotateY: [5, -5],
         scale: [0.85, 0.9],
+        filter: ["brightness(1)", "brightness(1.1)"],
       }}
       transition={{
         duration: 2,
