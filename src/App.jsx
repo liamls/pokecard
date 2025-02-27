@@ -55,7 +55,7 @@ function App() {
               <p style={descriptionStyle}>
                 This is a Pokémon card opening simulator made by Liam LS.
               </p>
-              <p style={descriptionStyle}>v0.2</p>
+              <p style={descriptionStyle}>v0.3</p>
             </motion.div>
           }
         />

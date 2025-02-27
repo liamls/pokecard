@@ -19,7 +19,7 @@ const Pokedex = () => {
   useEffect(() => {
     const savedPokemonIds =
       JSON.parse(sessionStorage.getItem("pokemonIds")) || [];
-    setPokemonIds(savedPokemonIds);
+    setPokemonIds(savedPokemonIds.sort((a, b) => a - b));
   }, []);
 
   const getPokemonImage = (id) => {
