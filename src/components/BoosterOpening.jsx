@@ -44,17 +44,6 @@ const BoosterOpening = () => {
     return false;
   };
 
-  useEffect(() => {
-    let currentAttempts = 0;
-    let id = 0;
-    while (id < 310) {
-      id = getRandomId();
-      currentAttempts++;
-      console.log(id);
-    }
-    console.log(id, "essai", currentAttempts);
-  }, []);
-
   const handleCardClick = () => {
     const newCardId = randomIds[currentCard];
     const isCardNew = checkNewCard(newCardId);
