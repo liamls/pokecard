@@ -1,38 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 
 const BoosterOpening = () => {
   const [currentCard, setCurrentCard] = useState(0);
   const [randomIds, setRandomIds] = useState([]);
-  const cardX = useMotionValue(0);
-  const cardY = useMotionValue(0);
-  const rotateX = useTransform(cardY, [-300, 300], [10, -10]);
-  const rotateY = useTransform(cardX, [-300, 300], [-10, 10]);
-  const cardRotateX = useTransform(cardY, [-300, 300], [25, -25]);
-  const cardRotateY = useTransform(cardX, [-300, 300], [-25, 25]);
+
   const navigate = useNavigate();
-
-  const handleMouseMove = (event) => {
-    const offsetX = event.clientX - window.innerWidth / 2;
-    const offsetY = event.clientY - window.innerHeight / 2;
-    cardX.set(offsetX);
-    cardY.set(offsetY);
-  };
-
-  const handleTouchMove = (event) => {
-    const touch = event.touches[0];
-    const offsetX = touch.clientX - window.innerWidth / 2;
-    const offsetY = touch.clientY - window.innerHeight / 2;
-    cardX.set(offsetX);
-    cardY.set(offsetY);
-  };
-
-  const handleMouseLeave = () => {
-    cardX.set(0);
-    cardY.set(0);
-  };
 
   const getRandomId = () => {
     const categories = [
@@ -98,33 +73,23 @@ const BoosterOpening = () => {
         flexDirection: "column",
         position: "relative",
       }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleMouseLeave}
     >
       {currentCard < randomIds.length && randomIds ? (
         <div onClick={handleCardClick} style={{ textAlign: "center" }}>
           <motion.img
             style={{
               height: "5rem",
-              visibility: checkNewCard(randomIds[currentCard])
-                ? "visible"
-                : "hidden",
             }}
             initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.5, opacity: 0 }}
-            transition={{ visibility: 0.3, duration: 0.25, ease: "easeOut" }}
+            animate={{
+              scale: checkNewCard(randomIds[currentCard]) ? 1 : 0.5,
+              opacity: checkNewCard(randomIds[currentCard]) ? 1 : 0,
+            }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             src="/assets/new.png"
+            layout
           />
-          <Card
-            rotateX={rotateX}
-            rotateY={rotateY}
-            cardRotateX={cardRotateX}
-            cardRotateY={cardRotateY}
-            cardId={randomIds[currentCard]}
-          />
+          <Card cardId={randomIds[currentCard]} />
           <p style={{ fontWeight: "bold", color: "white" }}>
             Tap to get the next card.
           </p>
